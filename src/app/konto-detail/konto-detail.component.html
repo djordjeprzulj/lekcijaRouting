@@ -1,0 +1,21 @@
+<p>
+  konto-detail works!
+</p>
+<form novalidate #f="ngForm">
+  <mat-card fxLayout="column" class="konto-card">
+    <button class="konto-button" type="button" mat-raised-button color="basic" (click)="onGetById()">Pročitaj</button>
+    <mat-form-field>
+      <input matInput type="number" placeholder="ID" required [(ngModel)]="konto.id" name="id">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Naziv" required [(ngModel)]="konto.naziv" name="naziv">
+    </mat-form-field>
+    <mat-form-field>
+      <input matInput type="text" placeholder="Račun" required [(ngModel)]="konto.racun" name="racun">
+    </mat-form-field>
+    <button class="konto-button" type="button" mat-raised-button color="primary" (click)="onInsert()">Upiši</button>
+    <button class="konto-button" type="button" mat-raised-button color="accent" (click)="onUpdate()">Modifikuj</button>
+    <button class="konto-button" type="button" mat-raised-button color="warn" (click)="onDelete()">Obriši</button>
+  </mat-card>
+</form>
+<pre>{{ f.value | json }}</pre>
