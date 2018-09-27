@@ -13,12 +13,14 @@ import { KontoDetailComponent } from './konto-detail/konto-detail.component';
 import { HomeComponent } from './home/home.component';
 
 import { FormsModule } from '@angular/forms';
-import { MatFormFieldModule,  MatInputModule } from '@angular/material';
+import { MatFormFieldModule,  MatInputModule, MatToolbarModule, MatSidenavModule, MatIconModule, MatListModule } from '@angular/material';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
+import { NavigationComponent } from './navigation/navigation.component';
+import { LayoutModule } from '@angular/cdk/layout';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
@@ -34,7 +36,8 @@ const routes: Routes = [
     KontoComponent,
     KontoTableComponent,
     SampleTableComponent,
-    KontoDetailComponent
+    KontoDetailComponent,
+    NavigationComponent
   ],
   imports: [
     BrowserModule,
@@ -50,7 +53,12 @@ const routes: Routes = [
     MatButtonModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    RouterModule.forRoot(routes)
+    RouterModule.forRoot(routes),
+    LayoutModule,
+    MatToolbarModule,
+    MatSidenavModule,
+    MatIconModule,
+    MatListModule
   ],
   providers: [MatPaginator],
   bootstrap: [AppComponent]
