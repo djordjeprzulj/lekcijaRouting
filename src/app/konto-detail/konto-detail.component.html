@@ -1,9 +1,13 @@
 <p>
   konto-detail works!
 </p>
-<form novalidate #f="ngForm">
+<form novalidate #f="ngForm" fxLayout="row">
   <mat-card fxLayout="column" class="konto-card">
     <button class="konto-button" type="button" mat-raised-button color="basic" (click)="onTableView()">Tabela</button>
+    <br>
+    <button class="konto-button" type="button" mat-raised-button color="basic" (click)="onIzvodi()">Izvodi</button>
+    <br>
+    <button class="konto-button" type="button" mat-raised-button color="basic" (click)="onTipoviZaduzenja()">Tipovi zaduženja</button>
     <br>
     <button class="konto-button" type="button" mat-raised-button color="basic" (click)="onGetById()">Pročitaj</button>
     <mat-form-field>
@@ -19,5 +23,6 @@
     <button class="konto-button" type="button" mat-raised-button color="accent" (click)="onUpdate()">Modifikuj</button>
     <button class="konto-button" type="button" mat-raised-button color="warn" (click)="onDelete()">Obriši</button>
   </mat-card>
+  <router-outlet></router-outlet>
 </form>
 <pre>{{ f.value | json }}</pre>

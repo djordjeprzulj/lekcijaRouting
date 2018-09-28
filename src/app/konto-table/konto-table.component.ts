@@ -27,6 +27,6 @@ export class KontoTableComponent implements OnInit {
   }
 
   onRowClick(k: Konto) {
-    this.router.navigate(['kontoDetail/' + k.id]);
+    this.router.navigate(['kontoDetail/' + k.id + '/edit']);
   }
 }

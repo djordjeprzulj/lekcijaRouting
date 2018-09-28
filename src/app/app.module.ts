@@ -21,12 +21,17 @@ import { ReactiveFormsModule } from '@angular/forms';
 import { Routes, RouterModule } from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
+import { IzvodiComponent } from './izvodi/izvodi.component';
+import { TipoviZaduzenjaComponent } from './tipovi-zaduzenja/tipovi-zaduzenja.component';
 
 const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'konto', component: KontoComponent},
-  {path: 'kontoDetail', component: KontoDetailComponent},
-  {path: 'kontoDetail/:id', component: KontoDetailComponent},
+  {path: 'kontoDetail/:id/edit', component: KontoDetailComponent,
+    children: [
+      {path: 'izvodi', component: IzvodiComponent},
+      {path: 'tipoviZaduzenja', component: TipoviZaduzenjaComponent},
+    ]},
   {path: 'kontoTable', component: KontoTableComponent}
 ];
 
@@ -38,7 +43,9 @@ const routes: Routes = [
     KontoTableComponent,
     SampleTableComponent,
     KontoDetailComponent,
-    NavigationComponent
+    NavigationComponent,
+    IzvodiComponent,
+    TipoviZaduzenjaComponent
   ],
   imports: [
     BrowserModule,

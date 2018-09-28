@@ -18,13 +18,21 @@ export class KontoDetailComponent implements OnInit {
 
   ngOnInit() {
     const id = this.route.snapshot.params['id'];
-    this.konto.id = id;
-    this.onGetById();
+    if (id != 'null') {
+      this.konto.id = id;
+      this.onGetById();  
+    }
+  }
+  onIzvodi() {
+    this.router.navigate(['izvodi'], {relativeTo: this.route});
+  }
+
+  onTipoviZaduzenja() {
+    this.router.navigate(['tipoviZaduzenja'], {relativeTo: this.route});
   }
 
   onTableView() {
-    // this.router.navigate(['kontoTable']);
-    this.router.navigate(['kontoTable'], {relativeTo: this.route});
+    this.router.navigate(['kontoTable']);
   }
 
   onGetById() {
