@@ -18,22 +18,11 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { ReactiveFormsModule } from '@angular/forms';
-import { Routes, RouterModule } from '@angular/router';
 import { NavigationComponent } from './navigation/navigation.component';
 import { LayoutModule } from '@angular/cdk/layout';
 import { IzvodiComponent } from './izvodi/izvodi.component';
 import { TipoviZaduzenjaComponent } from './tipovi-zaduzenja/tipovi-zaduzenja.component';
-
-const routes: Routes = [
-  {path: '', component: HomeComponent},
-  {path: 'konto', component: KontoComponent},
-  {path: 'kontoDetail/:id/edit', component: KontoDetailComponent,
-    children: [
-      {path: 'izvodi', component: IzvodiComponent},
-      {path: 'tipoviZaduzenja', component: TipoviZaduzenjaComponent},
-    ]},
-  {path: 'kontoTable', component: KontoTableComponent}
-];
+import { AppRoutingModule } from './app-routing.module';
 
 @NgModule({
   declarations: [
@@ -61,12 +50,12 @@ const routes: Routes = [
     MatButtonModule,
     ReactiveFormsModule,
     FlexLayoutModule,
-    RouterModule.forRoot(routes),
     LayoutModule,
     MatToolbarModule,
     MatSidenavModule,
     MatIconModule,
-    MatListModule
+    MatListModule,
+    AppRoutingModule
   ],
   providers: [MatPaginator],
   bootstrap: [AppComponent]
