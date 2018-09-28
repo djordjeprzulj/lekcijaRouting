@@ -17,6 +17,9 @@ export class KontoDetailComponent implements OnInit {
               private route: ActivatedRoute) { }
 
   ngOnInit() {
+    const id = this.route.snapshot.params['id'];
+    this.konto.id = id;
+    this.onGetById();
   }
 
   onTableView() {

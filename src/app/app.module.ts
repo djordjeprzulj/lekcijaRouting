@@ -26,6 +26,7 @@ const routes: Routes = [
   {path: '', component: HomeComponent},
   {path: 'konto', component: KontoComponent},
   {path: 'kontoDetail', component: KontoDetailComponent},
+  {path: 'kontoDetail/:id', component: KontoDetailComponent},
   {path: 'kontoTable', component: KontoTableComponent}
 ];
 
