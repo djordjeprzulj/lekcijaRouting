@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { KontoService } from '../services/konto.service';
 import { Konto } from '../models/konto.model';
-import { Router } from '@angular/router';
+import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-konto-detail',
@@ -12,13 +12,16 @@ export class KontoDetailComponent implements OnInit {
 
   konto: Konto = new Konto(null, '', '');
 
-  constructor(private kontoService: KontoService, private router: Router) { }
+  constructor(private kontoService: KontoService,
+              private router: Router,
+              private route: ActivatedRoute) { }
 
   ngOnInit() {
   }
 
   onTableView() {
-    this.router.navigate(['kontoTable']);
+    // this.router.navigate(['kontoTable']);
+    this.router.navigate(['kontoTable'], {relativeTo: this.route});
   }
 
   onGetById() {
