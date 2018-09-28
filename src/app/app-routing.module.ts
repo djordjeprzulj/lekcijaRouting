@@ -6,11 +6,13 @@ import { IzvodiComponent } from "./izvodi/izvodi.component";
 import { TipoviZaduzenjaComponent } from "./tipovi-zaduzenja/tipovi-zaduzenja.component";
 import { KontoTableComponent } from "./konto-table/konto-table.component";
 import { Routes, RouterModule } from "@angular/router";
+import { AuthGuard } from "./services/auth-guard.service";
 
 const routes: Routes = [
     {path: '', component: HomeComponent},
     {path: 'konto', component: KontoComponent},
-    {path: 'kontoDetail/:id/edit', component: KontoDetailComponent,
+    // {path: 'kontoDetail/:id/edit', canActivate: [AuthGuard], component: KontoDetailComponent,
+    {path: 'kontoDetail/:id/edit', canActivateChild: [AuthGuard], component: KontoDetailComponent,
       children: [
         {path: 'izvodi', component: IzvodiComponent},
         {path: 'tipoviZaduzenja', component: TipoviZaduzenjaComponent},

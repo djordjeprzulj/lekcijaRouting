@@ -23,6 +23,8 @@ import { LayoutModule } from '@angular/cdk/layout';
 import { IzvodiComponent } from './izvodi/izvodi.component';
 import { TipoviZaduzenjaComponent } from './tipovi-zaduzenja/tipovi-zaduzenja.component';
 import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './services/auth-guard.service';
+import { AuthService } from './services/auth.service';
 
 @NgModule({
   declarations: [
@@ -57,7 +59,7 @@ import { AppRoutingModule } from './app-routing.module';
     MatListModule,
     AppRoutingModule
   ],
-  providers: [MatPaginator],
+  providers: [MatPaginator, AuthService, AuthGuard],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
